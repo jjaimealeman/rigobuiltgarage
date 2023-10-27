@@ -1,0 +1,224 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Main from "../components/Main.astro";
+import { getCollection } from "astro:content";
+import { Picture, getImage } from "astro:assets";
+
+import myImage1 from "../images/500/300/funsplash-4qjqR9g8OV.jpg";
+const myImageBG1 = await getImage({ src: myImage1, format: "webp" });
+
+import myImage2 from "../images/500/300/funsplash-4b4hY6PpxN.jpg";
+const myImageBG2 = await getImage({ src: myImage2, format: "webp" });
+
+// data method 1: local frontmatter data
+const data1 = ["Isabella", "Olivia", "Dad"];
+
+// data method 2: fetch data from external API
+const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+type Post = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};
+const data2: Post[] = await res.json();
+// console.log("🚀 ~ file: test.astro:8 ~ data2:", data2);
+
+// data method 3: import local files
+import moviesJson from "../data/movies.json";
+import carsJson from "../data/cars.json";
+const sortedData = moviesJson.sort((a, b) => a.year - b.year);
+function joinWithAnd(arr: string[]) {
+  if (arr.length === 0) {
+    return "";
+  } else if (arr.length === 1) {
+    return arr[0];
+  } else if (arr.length === 2) {
+    return arr.join(" and ");
+  } else {
+    const last = arr.pop();
+    return `${arr.join(", ")}, and ${last}`;
+  }
+}
+
+// data method 4: content collections
+const testColl = await getCollection("test");
+
+// console.log("🚀 ~ file: test.astro:39 ~ testColl:", testColl);
+---
+
+<Layout title="Test" description="a page for testing things">
+  <Main>
+    <div class="">
+      <Picture
+        class="saturate-0 hover:saturate-100 transition duration-200 ease-in-out"
+        src={myImage1}
+        formats={["avif", "webp"]}
+        alt="I love Astro Weekly!"
+      />
+    </div>
+
+    <hr class="my-6" />
+
+    <div
+      class="block max-w-sm rounded-lg bg-white bg-cover p-6 shadow-lg dark:bg-neutral-700 transition duration-200 ease-in-out"
+      style={`background-image: url(${myImageBG2.src});`}
+    >
+      <h5
+        class="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50"
+      >
+        Card title
+      </h5>
+      <p class="mb-4 text-base text-white dark:text-neutral-200">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+      <button
+        type="button"
+        class="inline-block rounded border-2 border-neutral-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+        data-te-ripple-init
+      >
+        Button
+      </button>
+    </div>
+
+    <hr class="my-6" />
+
+    <nav
+      class="group rounded-xl mb-4 p-2 font-medium bg-slate-200 hover:bg-slate-100 text-slate-700 hover:text-slate-900"
+    >
+      {
+        [
+          ["Home", "/"],
+          ["Test", "/test"],
+          ["Posts", "/posts"],
+          ["About", "/about"],
+        ].map(([title, url]) => (
+          <a
+            href={url}
+            class="rounded-xl mx-2 px-3 py-2 font-medium bg-slate-200 hover:bg-zinc-300 text-slate-700 group-hover:text-zinc-800"
+          >
+            {title}
+          </a>
+        ))
+      }
+    </nav>
+
+    <h2 class="font-bold text-lg capitalize underline font-serif">
+      local frontmatter data
+    </h2>
+    <ul class="mb-12">
+      {data1.map((i) => <li>{i}</li>)}
+    </ul>
+
+    <h2 class="font-bold text-lg capitalize underline font-serif">
+      fetch data from external API
+    </h2>
+    <ul class="mb-12">
+      {
+        data2.slice(0, 5).map((i) => (
+          <li>
+            {i.id} - {i.title} <br /> {i.body}
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2 class="font-bold text-lg capitalize underline">
+      import local files: list of movies
+    </h2>
+    <ul>
+      {
+        sortedData.map((movies) => (
+          <li class="mb-4">
+            {movies.year} - <span class="underline">{movies.title}</span>{" "}
+            starring {joinWithAnd(movies.starring)} <br />{" "}
+            <span class="italic pl-8">{movies.plot}</span>
+          </li>
+        ))
+      }
+    </ul>
+    <h2 class="font-bold text-lg capitalize underline">
+      import local files: list of popular cars
+    </h2>
+    <ul>
+      {
+        carsJson.map((cars) => (
+          <li class="mb-4">
+            {cars.year}&nbsp;{cars.make}&nbsp;{cars.model}
+          </li>
+        ))
+      }
+    </ul>
+
+    <h2 class="font-bold text-lg capitalize underline">content collections</h2>
+    <ul>
+      {
+        testColl.map((item) => (
+          <li class="mb-4">
+            {item.id}. - {item.data.name} - ${item.data.price} -{" "}
+            {item.data.color} - {item.data.brand} - {item.data.category}
+          </li>
+        ))
+      }
+    </ul>
+
+    <div
+      class="shadow-mine1 flex flex-col mx-auto max-w-2xl mt-24 p-8 bg-slate-200"
+    >
+      <h2
+        class="font-mono font-bold text-gray-700 bg-gray-400 rounded-md block mb-4 pl-4"
+      >
+        .mine1
+      </h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+        dolores qui rerum iste architecto consequatur earum odio eum, quo
+        corporis blanditiis sapiente quas sequi fuga ipsa in impedit repellat,
+        illo veniam totam. Provident excepturi officia reiciendis cumque
+        similique laborum in quam. Temporibus inventore tenetur vitae deserunt
+        explicabo quasi quos perspiciatis. Asperiores accusamus reprehenderit
+        voluptate magnam!
+      </p>
+    </div>
+    <div
+      class="shadow-mine2 flex flex-col mx-auto max-w-3xl mt-24 p-8 bg-slate-200"
+    >
+      <h2
+        class="font-mono font-bold text-gray-700 bg-gray-400 rounded-md block mb-4 pl-4"
+      >
+        .mine2
+      </h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+        dolores qui rerum iste architecto consequatur earum odio eum, quo
+        corporis blanditiis sapiente quas sequi fuga ipsa in impedit repellat,
+        illo veniam totam. Provident excepturi officia reiciendis cumque
+        similique laborum in quam. Temporibus inventore tenetur vitae deserunt
+        explicabo quasi quos perspiciatis. Asperiores accusamus reprehenderit
+        voluptate magnam!
+      </p>
+    </div>
+  </Main>
+</Layout>
+
+<style>
+  .list > .item {
+    transition:
+      scale 200ms,
+      translate 200ms;
+  }
+  .list > .item:hover {
+    scale: 1.3;
+  }
+  .list > .item:has(~ .item:hover) {
+    translate: -1.5rem;
+  }
+  .list > .item:hover ~ .item {
+    translate: 1.5rem;
+  }
+  .list > .item:has(+ .item:hover),
+  .list > .item:hover + .item {
+    scale: 1.1;
+  }
+</style>

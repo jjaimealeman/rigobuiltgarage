@@ -1,0 +1,12 @@
+{
+  "id": "mig_ckk42q0tkl0ehqp53su0",
+  "parentID": "mig_ckjiudkol515dk89j8v0",
+  "checksum": "1:2242307fc9aee543e7bf786ee1eb417e9b932ff96ea10f6f5e9210f338cb9835",
+  "operations": [
+    {
+      "addTable": {
+        "table": "subscribers"
+      }
+    }
+  ]
+}
