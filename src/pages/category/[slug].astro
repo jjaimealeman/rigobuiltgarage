@@ -1,5 +1,5 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry, getCollection } from "astro:content";
 import CategoryList from "../../components/CategoryList.astro";
 import H1 from "../../components/H1.astro";
 import Main from "../../components/Main.astro";
@@ -26,7 +26,7 @@ const posts = postsByCategory.slice(start, end);
     <a class="text-zinc-500 text-2xl mb-16 underline block" href="/blog">
       &larr; Back to all Blogs
     </a>
-    <H1 text="Rhythm Nation Blog" />
+    <H1 text="Rigo Built Garage" />
     <p class="text-zinc-900 text-2xl mb-24 max-sm:mb-14">
       Join the Community and learn from Music Producers and Enthusiasts
     </p>
