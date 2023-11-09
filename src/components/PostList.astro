@@ -1,15 +1,17 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import Post from './Post.astro';
+import type { CollectionEntry } from "astro:content";
+import Post from "./Post.astro";
 
 type Props = {
-    posts: CollectionEntry<"posts">[]
-}
+  posts: CollectionEntry<"posts">[];
+};
 
-const { posts } = Astro.props;
+let { posts } = Astro.props;
+posts = posts.sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
-<div class="grid grid-cols-2 gap-x-16 gap-y-32 max-md:grid-cols-1 max-sm:gap-y-14">
-    {posts.map((post) => <Post post={post} />)}
-
+<div
+  class="grid grid-cols-2 gap-x-16 gap-y-32 max-md:grid-cols-1 max-sm:gap-y-14"
+>
+  {posts.map((post) => <Post post={post} />)}
 </div>
