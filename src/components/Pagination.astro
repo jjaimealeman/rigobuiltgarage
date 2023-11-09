@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+type Props = {
+  page: number;
+  numberOfPosts: number;
+};
+
+const { page, numberOfPosts } = Astro.props;
+const postsPerPage = 2;
+const hasPreviousPosts = page > 1;
+const hasNextPosts = numberOfPosts > page * postsPerPage;
+---
+
+<div class="flex justify-between">
+  {
+    hasPreviousPosts ? (
+      <a
+        class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
+        href={`?page=${page - 1}`}>
+        Previous
+      </a>
+    ) : (
+      <div />
+    )
+  }
+
+  {
+    hasNextPosts ? (
+      <a
+        class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
+        href={`?page=${page + 1}`}>
+        Next
+      </a>
+    ) : (
+      <div />
+    )
+  }
+</div>

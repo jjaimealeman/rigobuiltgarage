@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Jaime-Aleman-s-workspace-8p9k0c.us-east-1.xata.sh/db/astrocourse-demo",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}

@@ -1,0 +1,56 @@
+---
+import Footer from "../components/Footer.astro";
+import Navigation from "../components/Navigation.astro";
+import "@fontsource-variable/open-sans";
+import "@fontsource-variable/fira-code";
+import "@fontsource/merriweather";
+import { getThumbnail } from "../cloudinary";
+import TwSizeIndicator from "../components/TwSizeIndicator.astro";
+import "../base.css";
+import { ViewTransitions } from "astro:transitions";
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const {
+  title = "Rhythm Nation",
+  description = "A community for music lovers",
+  image = getThumbnail("A community of Music Producers and Enthusiasts."),
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={description} />
+    <!-- Open Graph / Twitter -->
+    <meta property="twitter:card" content="summary_big_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+    <meta property="twitter:image:alt" content={description} />
+    <ViewTransitions />
+  </head>
+  <body>
+    <TwSizeIndicator />
+    <Navigation />
+    <slot />
+    <Footer />
+  </body>
+</html>
