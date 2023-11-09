@@ -7,7 +7,7 @@ import netlify from "@astrojs/netlify/functions";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
-  site: "https://astrocourse-demo.netlify.app",
+  site: "https://rigobuiltgarage.netlify.app",
   output: "server",
   adapter: netlify(),
 });
