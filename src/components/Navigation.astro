@@ -23,7 +23,7 @@ const currentPath = pathName.slice(1);
   <ul class="w-full flex justify-between pr-8">
     {
       ["", "about", "contact", "gallery", "test"].map((page) => (
-        <li class="inline ml-auto text-2xl capitalize">
+        <li class="inline ml-auto text-lg md:text-xl lg:text-2xl capitalize">
           <a
             class={
               currentPath === page
