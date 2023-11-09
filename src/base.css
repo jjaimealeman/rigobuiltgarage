@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    ::selection {
+        @apply bg-zinc-800 text-white;
+      }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Archivo Black', sans-serif;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+    .ass {
+        /* border: 2px solid #ff0000; */
+        @apply border-2 border-solid border-blue-500 bg-gradient-to-b from-blue-100/80 to-blue-300/80 p-2;
+    }
+
+}

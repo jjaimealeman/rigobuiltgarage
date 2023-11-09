@@ -1,11 +1,13 @@
 ---
 import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Navigation from "../components/Navigation.astro";
 import "@fontsource-variable/open-sans";
-import '@fontsource-variable/fira-code';
-import '@fontsource/merriweather';
+import "@fontsource-variable/fira-code";
+import "@fontsource/merriweather";
 import { getThumbnail } from "../cloudinary";
 import TwSizeIndicator from "../components/TwSizeIndicator.astro";
+import "../base.css";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -43,10 +45,11 @@ const {
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={image} />
     <meta property="twitter:image:alt" content={description} />
+    <ViewTransitions />
   </head>
-  <body class="min-h-screen grid grid-rows-[auto,1fr,auto]">
-<TwSizeIndicator />
-    <Header />
+  <body>
+    <TwSizeIndicator />
+    <Navigation />
     <slot />
     <Footer />
   </body>

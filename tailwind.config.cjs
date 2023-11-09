@@ -9,6 +9,8 @@ module.exports = {
         sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
         mono: ["Fira Code Variable", ...defaultTheme.fontFamily.mono],
         serif: ["Merriweather", ...defaultTheme.fontFamily.serif],
+        heading: ['Archivo Black', 'sans-serif'],
+        body: ['Montserrat', 'sans-serif'],
       },
       aspectRatio: {
         thumbnail: "1.5",
@@ -23,6 +25,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
     require("@tailwindcss/container-queries")
   ],
 };
