@@ -3,7 +3,7 @@ author: jim-halpert
 categories: ["career advice"]
 date: 08/10/2021
 featured: false
-image: ./images/resized/guitarist.jpg
+image: ./images/resized/guitarist.webp
 title: Guitar solos are still awesome
 description: An exploration of the enduring appeal of guitar solos in popular music.
 ---

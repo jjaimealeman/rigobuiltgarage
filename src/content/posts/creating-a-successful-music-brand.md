@@ -3,7 +3,7 @@ author: pam-beesely
 categories: ["career advice"]
 date: 08/10/2021
 featured: false
-image: ./images/resized/record.jpg
+image: ./images/resized/record.webp
 title: Creating a successful music brand
 description: Tips and strategies for building a strong brand identity as a musician or music business.
 ---

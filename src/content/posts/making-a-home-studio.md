@@ -3,7 +3,7 @@ author: dwight-schrute
 categories: ["studio tips"]
 date: 08/10/2021
 featured: false
-image: ./images/resized/studio.jpg
+image: ./images/resized/studio.webp
 title: Making a home studio
 description: A beginner's guide to setting up a home recording studio, including equipment recommendations and tips for optimizing your space.
 ---
