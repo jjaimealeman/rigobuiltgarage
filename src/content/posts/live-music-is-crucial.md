@@ -3,7 +3,7 @@ author: jim-halpert
 categories: ["insights"]
 date: 08/10/2021
 featured: false
-image: ./images/resized/concert.jpg
+image: ./images/resized/concert.webp
 title: Live music is crucial
 description: An argument for the importance of live music experiences and their impact on both performers and audiences.
 ---

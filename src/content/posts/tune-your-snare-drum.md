@@ -3,7 +3,7 @@ author: michael-scott
 categories: ["studio tips"]
 date: 08/10/2021
 featured: false
-image: ./images/resized/drums.jpg
+image: ./images/resized/drums.webp
 title: Tune your snare drum
 description: A guide to achieving the perfect snare drum sound, including tuning tips and techniques.
 ---
