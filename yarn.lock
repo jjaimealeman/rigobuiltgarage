@@ -564,10 +564,20 @@
   resolved "https://registry.npmjs.org/@fontsource-variable/open-sans/-/open-sans-5.0.16.tgz"
   integrity sha512-XDGTjQ+4gktH4g8lqzJ7XuvC77CtXYhPu6MZxjtU5ZTijBuelPd4ES0OSCLobK95SpQrI77lqrJGqjZBQHE05A==
 
+"@fontsource/archivo-black@^5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@fontsource/archivo-black/-/archivo-black-5.0.17.tgz#2e12d21d53f571e0c040d829e2afef9d23ff8af7"
+  integrity sha512-5LB93AsMUxofgIkHz7lSBfJFXYBPRqCV6MRLhOlbFLwXW50frsaryFFvT+ZqtsDLPrGPvPv0FD5Cqzkp0g4Paw==
+
 "@fontsource/merriweather@^5.0.8":
   version "5.0.8"
   resolved "https://registry.npmjs.org/@fontsource/merriweather/-/merriweather-5.0.8.tgz"
   integrity sha512-4vvR6psdKcGzaFCQL8fGCqMI/mOLKD+mhmUe3iQilx/4VFkIcF7wswWHZ7KCPeF24edX8yd0QXX0DQ1CenMrYA==
+
+"@fontsource/montserrat@^5.0.15":
+  version "5.0.15"
+  resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-5.0.15.tgz#3da83aef4a839ac76821500e60153a761f60ef78"
+  integrity sha512-ZJbsCIJp6VHL1wYQUPpyBjXMzwGdfFedrmrw4r5sFi7WrMpnfJv+el1uVO6yDPIqnVqkPvjJ+xeKgJwnj2LuQQ==
 
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
@@ -647,6 +657,13 @@
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@tailwindcss/container-queries/-/container-queries-0.1.1.tgz#9a759ce2cb8736a4c6a0cb93aeb740573a731974"
   integrity sha512-p18dswChx6WnTSaJCSGx6lTmrGzNNvm2FtXmiO6AuA1V4U5REyoqwmT6kgAsIMdjo07QdAfYXHJ4hnMtfHzWgA==
+
+"@tailwindcss/forms@^0.5.6":
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.5.6.tgz#29c6c2b032b363e0c5110efed1499867f6d7e868"
+  integrity sha512-Fw+2BJ0tmAwK/w01tEFL5TiaJBX1NLT1/YbWgvm7ws3Qcn11kiXxzNTEQDMs5V3mQemhB56l3u0i9dwdzSQldA==
+  dependencies:
+    mini-svg-data-uri "^1.2.3"
 
 "@tailwindcss/typography@^0.5.10":
   version "0.5.10"
@@ -2791,6 +2808,11 @@ mimic-response@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/mimic-response/-/mimic-response-3.1.0.tgz"
   integrity sha512-z0yWI+4FDrrweS8Zmt4Ej5HdJmky15+L2e6Wgn3+iK5fWzb6T3fhNFq2+MeTRb064c6Wr4N/wv0DzQTjNzHNGQ==
+
+mini-svg-data-uri@^1.2.3:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz#8ab0aabcdf8c29ad5693ca595af19dd2ead09939"
+  integrity sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==
 
 minimatch@^3.0.4:
   version "3.1.2"
