@@ -3,6 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import Main from "../components/Main.astro";
 import { getCollection } from "astro:content";
 import { Picture, getImage } from "astro:assets";
+import bgHome from "../images/bg-home.png";
+import { Image } from "astro:assets";
+import aboutMechanics from "../images/about-mechanics.png"; // 365x365 @176kb
+import aboutPricing from "../images/about-pricing.png"; // 365x365 @107kb
+import aboutPromise from "../images/about-promise.png"; // 365x365 @196kb
 
 import myImage1 from "../images/500/300/funsplash-4qjqR9g8OV.jpg";
 const myImageBG1 = await getImage({ src: myImage1, format: "webp" });
@@ -12,17 +17,6 @@ const myImageBG2 = await getImage({ src: myImage2, format: "webp" });
 
 // data method 1: local frontmatter data
 const data1 = ["Isabella", "Olivia", "Dad"];
-
-// data method 2: fetch data from external API
-const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-type Post = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-};
-const data2: Post[] = await res.json();
-// console.log("🚀 ~ file: test.astro:8 ~ data2:", data2);
 
 // data method 3: import local files
 import moviesJson from "../data/movies.json";
@@ -49,176 +43,166 @@ const testColl = await getCollection("test");
 
 <Layout title="Test" description="a page for testing things">
   <Main>
-    <div class="">
-      <Picture
-        class="saturate-0 hover:saturate-100 transition duration-200 ease-in-out"
-        src={myImage1}
-        formats={["avif", "webp"]}
-        alt="I love Astro Weekly!"
-      />
-    </div>
-
-    <hr class="my-6" />
-
-    <div
-      class="block max-w-sm rounded-lg bg-white bg-cover p-6 shadow-lg dark:bg-neutral-700 transition duration-200 ease-in-out"
-      style={`background-image: url(${myImageBG2.src});`}
+    <section
+      class="flex flex-col h-screen bg-no-repeat bg-center bg-cover"
+      style={`background-image: url(${bgHome.src});`}
     >
-      <h5
-        class="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50"
-      >
-        Card title
-      </h5>
-      <p class="mb-4 text-base text-white dark:text-neutral-200">
-        Some quick example text to build on the card title and make up the bulk
-        of the card's content.
-      </p>
-      <button
-        type="button"
-        class="inline-block rounded border-2 border-neutral-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
-        data-te-ripple-init
-      >
-        Button
-      </button>
-    </div>
-
-    <hr class="my-6" />
-
-    <nav
-      class="group rounded-xl mb-4 p-2 font-medium bg-slate-200 hover:bg-slate-100 text-slate-700 hover:text-slate-900"
-    >
-      {
-        [
-          ["Home", "/"],
-          ["Test", "/test"],
-          ["Posts", "/posts"],
-          ["About", "/about"],
-        ].map(([title, url]) => (
+      <div class="flex justify-end">
+        <h2
+          class="w-1/2 md:w-1/3 xl:w-1/4 text-2xl lg:text-3xl text-white text-center bg-gray-400/50 font-body"
+        >
           <a
-            href={url}
-            class="rounded-xl mx-2 px-3 py-2 font-medium bg-slate-200 hover:bg-zinc-300 text-slate-700 group-hover:text-zinc-800"
+            href="tel:+19153000680"
+            class="block h-full w-full py-4 px-2 md:hidden"
           >
-            {title}
-          </a>
-        ))
-      }
-    </nav>
-
-    <h2 class="font-bold text-lg capitalize underline font-serif">
-      local frontmatter data
-    </h2>
-    <ul class="mb-12">
-      {data1.map((i) => <li>{i}</li>)}
-    </ul>
-
-    <h2 class="font-bold text-lg capitalize underline font-serif">
-      fetch data from external API
-    </h2>
-    <ul class="mb-12">
-      {
-        data2.slice(0, 5).map((i) => (
-          <li>
-            {i.id} - {i.title} <br /> {i.body}
-          </li>
-        ))
-      }
-    </ul>
-
-    <h2 class="font-bold text-lg capitalize underline">
-      import local files: list of movies
-    </h2>
-    <ul>
-      {
-        sortedData.map((movies) => (
-          <li class="mb-4">
-            {movies.year} - <span class="underline">{movies.title}</span>{" "}
-            starring {joinWithAnd(movies.starring)} <br />{" "}
-            <span class="italic pl-8">{movies.plot}</span>
-          </li>
-        ))
-      }
-    </ul>
-    <h2 class="font-bold text-lg capitalize underline">
-      import local files: list of popular cars
-    </h2>
-    <ul>
-      {
-        carsJson.map((cars) => (
-          <li class="mb-4">
-            {cars.year}&nbsp;{cars.make}&nbsp;{cars.model}
-          </li>
-        ))
-      }
-    </ul>
-
-    <h2 class="font-bold text-lg capitalize underline">content collections</h2>
-    <ul>
-      {
-        testColl.map((item) => (
-          <li class="mb-4">
-            {item.id}. - {item.data.name} - ${item.data.price} -{" "}
-            {item.data.color} - {item.data.brand} - {item.data.category}
-          </li>
-        ))
-      }
-    </ul>
-
-    <div
-      class="shadow-mine1 flex flex-col mx-auto max-w-2xl mt-24 p-8 bg-slate-200"
-    >
-      <h2
-        class="font-mono font-bold text-gray-700 bg-gray-400 rounded-md block mb-4 pl-4"
+            <svg
+              class="w-6 h-6 inline mr-4 animate-pulse md:animate-none"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 16 16"
+              ><path
+                fill="currentColor"
+                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608a17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42a18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.762.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"
+              ></path></svg
+            >
+             (915) 300-0680</a
+          >
+          <span class="hidden h-full w-full py-4 px-2 md:block">
+            <svg
+              class="w-6 h-6 inline mr-4 animate-pulse md:animate-none"
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 16 16"
+              ><path
+                fill="currentColor"
+                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608a17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42a18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511zm10.762.135a.5.5 0 0 1 .708 0l2.5 2.5a.5.5 0 0 1 0 .708l-2.5 2.5a.5.5 0 0 1-.708-.708L14.293 4H9.5a.5.5 0 0 1 0-1h4.793l-1.647-1.646a.5.5 0 0 1 0-.708z"
+              ></path></svg
+            >
+             (915) 300-0680</span
+          >
+        </h2>
+      </div>
+      <section
+        class="flex flex-col items-center justify-evenly h-[calc(100%-80px)] mx-auto max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl"
       >
-        .mine1
-      </h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-        dolores qui rerum iste architecto consequatur earum odio eum, quo
-        corporis blanditiis sapiente quas sequi fuga ipsa in impedit repellat,
-        illo veniam totam. Provident excepturi officia reiciendis cumque
-        similique laborum in quam. Temporibus inventore tenetur vitae deserunt
-        explicabo quasi quos perspiciatis. Asperiores accusamus reprehenderit
-        voluptate magnam!
-      </p>
-    </div>
-    <div
-      class="shadow-mine2 flex flex-col mx-auto max-w-3xl mt-24 p-8 bg-slate-200"
-    >
+        <div class="">
+          <h2
+            class="text-4xl md:text-5xl lg:text-6xl font-bold text-white bg-gray-400/50 text-center p-8 leading-tight"
+          >
+            Family Owned, Veteran Owned Automotive Repair Shop
+          </h2>
+          <h3
+            class="text-lg md:text-xl lg:text-2xl font-normal text-white bg-sky-600/50 text-center p-4 font-body"
+          >
+            We offer quality auto performance and repairs, backed by years of
+            experience!
+          </h3>
+        </div>
+        <div class="flex items-center justify-around">
+          <button
+            class="bg-sky-300 text-slate-900 drop-shadow-[0_10px_10px_rgba(0,0,0,0.75)] border-2 border-slate-800 py-4 px-6 text-center tracking-wider rounded-xl text-lg md:text-xl lg:text-2xl hover:-translate-y-[4px] duration-200 hover:scale-105 transform-gpu"
+            >Schedule an Appointment</button
+          >
+        </div>
+      </section>
+    </section>
+
+    <div class="bg-zinc-900 pb-12 w-full">
       <h2
-        class="font-mono font-bold text-gray-700 bg-gray-400 rounded-md block mb-4 pl-4"
+        class="text-5xl md:text-6xl lg:text-7xl font-bold text-sky-600 text-center py-12 leading-tight"
       >
-        .mine2
+        About Us
       </h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-        dolores qui rerum iste architecto consequatur earum odio eum, quo
-        corporis blanditiis sapiente quas sequi fuga ipsa in impedit repellat,
-        illo veniam totam. Provident excepturi officia reiciendis cumque
-        similique laborum in quam. Temporibus inventore tenetur vitae deserunt
-        explicabo quasi quos perspiciatis. Asperiores accusamus reprehenderit
-        voluptate magnam!
-      </p>
+      <section
+        class="flex flex-col md:flex-row items-center md:items-start justify-between container mx-auto"
+      >
+        <div class="flex flex-col w-full items-center justify-start mx-4">
+          <h3
+            class="text-2xl md:text-3xl lg:text-4xl font-semibold py-12 text-white text-center"
+          >
+            Experienced Mechanics
+          </h3>
+          <Image
+            class="drop-shadow-[0_0_15px_rgba(120,120,120,0.75)] pb-8"
+            src={aboutMechanics}
+            alt="Experienced Mechanics"
+          />
+          <p
+            class="text-lg md:text-xl lg:text-2xl text-white/80 mx-4 text-center leading-relaxed border-b-2 border-white/50 pb-8 md:border-b-0"
+          >
+            The mechanics at our shop have over 15 years of experience between
+            them. We specialize on Subaru vehicles. We are dedicated to
+            providing high-quality performance upgrade and repairs to keep you
+            safe and happy.
+          </p>
+        </div>
+        <div class="flex flex-col w-full items-center justify-start mx-4">
+          <h3
+            class="text-2xl md:text-3xl lg:text-4xl font-semibold py-12 text-white text-center"
+          >
+            Competitive Pricing
+          </h3>
+          <Image
+            class="drop-shadow-[0_0_15px_rgba(120,120,120,0.75)] pb-8"
+            src={aboutPricing}
+            alt="Competitive Pricing"
+          />
+          <p
+            class="text-lg md:text-xl lg:text-2xl text-white/80 mx-4 text-center leading-relaxed border-b-2 border-white/50 pb-8 md:border-b-0"
+          >
+            Whether you're coming in for a routine inspection or a repair
+            service, we promise that you will be completely satisfied with our
+            work.
+          </p>
+        </div>
+        <div class="flex flex-col w-full items-center justify-start mx-4">
+          <h3
+            class="text-2xl md:text-3xl lg:text-4xl font-semibold py-12 text-white text-center"
+          >
+            Our Quality Promise
+          </h3>
+          <Image
+            class="drop-shadow-[0_0_15px_rgba(120,120,120,0.75)] pb-8"
+            src={aboutPromise}
+            alt="Our Quality Promise"
+          />
+          <p
+            class="text-lg md:text-xl lg:text-2xl text-white/80 mx-4 text-center leading-relaxed"
+          >
+            Whether you're coming in for a routine inspection or a repair
+            service, we promise that you will be completely satisfied with our
+            work.
+            <a href="#" class="animated-underline">Hover over me 01</a>
+          </p>
+        </div>
+      </section>
     </div>
   </Main>
 </Layout>
 
 <style>
-  .list > .item {
-    transition:
-      scale 200ms,
-      translate 200ms;
+  .animated-underline {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+    color: #fff;
   }
-  .list > .item:hover {
-    scale: 1.3;
+
+  .animated-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    transform: scaleX(0);
+    background-color: blue;
+    transition: transform 0.3s ease;
   }
-  .list > .item:has(~ .item:hover) {
-    translate: -1.5rem;
-  }
-  .list > .item:hover ~ .item {
-    translate: 1.5rem;
-  }
-  .list > .item:has(+ .item:hover),
-  .list > .item:hover + .item {
-    scale: 1.1;
+
+  .animated-underline:hover::after {
+    transform: scaleX(1);
   }
 </style>
