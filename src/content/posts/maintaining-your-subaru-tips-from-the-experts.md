@@ -2,7 +2,7 @@
 author: pam-beesely
 categories: ["maintenance"]
 date: 07/03/2023
-featured: true
+featured: false
 image: ./images/maintaining-your-subaru-tips-from-the-experts/01.png
 title: Maintaining Your Subaru - Tips from the Experts
 description: Offering maintenance advice to keep Subarus running at peak performance.
