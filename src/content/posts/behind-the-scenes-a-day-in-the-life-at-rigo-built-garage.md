@@ -2,7 +2,7 @@
 author: dwight-schrute
 categories: ["culture"]
 date: 06/22/2023
-featured: true
+featured: false
 image: ./images/behind-the-scenes-a-day-in-the-life-at-rigo-built-garage/01.png
 title: Behind the Scenes - A Day in the Life at Rigo Built Garage
 description: Giving customers a look at the daily operations and the expertise of the mechanics at Rigo Built Garage.

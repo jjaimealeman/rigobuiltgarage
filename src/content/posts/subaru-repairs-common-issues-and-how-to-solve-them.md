@@ -2,7 +2,7 @@
 author: michael-scott
 categories: ["repairs"]
 date: 09/11/2023
-featured: true
+featured: false
 image: ./images/subaru-repairs-common-issues-and-how-to-solve-them/01.png
 title: Subaru Repairs - Common Issues and How to Solve Them
 description: Addressing frequent problems Subaru owners face and providing solutions.
