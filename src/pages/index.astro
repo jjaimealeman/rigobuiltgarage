@@ -5,6 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import FeaturedPost from "../components/FeaturedPost.astro";
 import CategoryList from "../components/CategoryList.astro";
 import PostList from "../components/PostList.astro";
+import HeroHome from "../components/HeroHome.astro";
 
 const allPosts = await getCollection("posts");
 const featuredPosts = allPosts.filter((post) => post.data.featured);
@@ -14,6 +15,7 @@ const categories = Array.from(new Set(allCategories));
 ---
 
 <Layout title="Welcome to Astro." description="the homepage">
+  <HeroHome />
   <Main>
     {featuredPosts.map((post) => <FeaturedPost post={post} />)}
     <hr class="w-full border border-teal-900 mb-16 max-sm:mb-10" />
