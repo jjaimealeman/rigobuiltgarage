@@ -14,9 +14,10 @@ const cloudinary = new Cloudinary({
 
 const getThumbnail = (title: string) => {
   const thumbnail = cloudinary
-    .image("astro-course-ogbg")
+    // .image("astro-course-ogbg")
+    .image("rigobuiltgarage-ogbg")
     .overlay(
-      source(text(title, new TextStyle("Cabin", 64).fontWeight("bold"))),
+      source(text(title, new TextStyle("Cabin", 64).fontWeight("bold")))
     );
 
   return thumbnail.toURL();

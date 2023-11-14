@@ -1,7 +1,7 @@
 ---
 author: jim-halpert
 categories: ["performance"]
-date: 09/10/2023
+date: 07/04/2023
 featured: false
 image: ./images/the-ultimate-guide-to-subaru-performance-upgrades/01.png
 title: The Ultimate Guide to Subaru Performance Upgrades

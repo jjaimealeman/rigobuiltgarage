@@ -9,8 +9,8 @@ const parser = new MarkdownIt();
 export async function GET(context: APIContext) {
   const posts = await getCollection("posts");
   return rss({
-    title: "Rhythm Nation",
-    description: "A community of music producers and enthisiasts",
+    title: "Rigo Built Garage",
+    description: "Automotive Repair Shop",
     site: context.site?.toString() ?? "",
     items: posts.map((post) => ({
       title: post.data.title,

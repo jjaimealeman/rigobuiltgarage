@@ -6,6 +6,7 @@ type Props = {
   posts: CollectionEntry<"posts">[];
 };
 
+// const { posts } = Astro.props;
 let { posts } = Astro.props;
 posts = posts.sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
