@@ -8,7 +8,10 @@ type Props = {
 
 // const { posts } = Astro.props;
 let { posts } = Astro.props;
-posts = posts.sort((a, b) => b.data.date.localeCompare(a.data.date));
+// posts = posts.sort((a, b) => b.data.date.localeCompare(a.data.date));
+posts = posts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
 ---
 
 <div
