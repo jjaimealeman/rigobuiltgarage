@@ -1,13 +1,13 @@
 ---
-import { getEntryBySlug } from "astro:content";
+import { getEntryBySlug } from 'astro:content';
 
-const user = Astro.cookies.get("userId");
+const user = Astro.cookies.get('userId');
 
 const { slug } = Astro.params;
-const post = await getEntryBySlug("posts", slug as string);
+const post = await getEntryBySlug('posts', slug as string);
 
 if (!post) {
-  return Astro.redirect("/404");
+  return Astro.redirect('/404');
 }
 ---
 
@@ -15,7 +15,8 @@ if (!post) {
   user?.value ? (
     <form
       method="POST"
-      class="grid grid-cols-[1fr,auto] gap-x-3 gap-y-2 items-end max-md:grid-cols-1">
+      class="grid grid-cols-[1fr,auto] gap-x-3 gap-y-2 items-end max-md:grid-cols-1"
+    >
       <div class="flex flex-col">
         <label for="comment" class="text-zinc-900 text-2xl mb-2">
           Leave a comment
@@ -34,7 +35,8 @@ if (!post) {
 
       <button
         type="submit"
-        class="text-2xl text-zinc-100 bg-teal-900 px-6 py-5 rounded-xl my-1">
+        class="text-2xl text-zinc-100 bg-teal-900 px-6 py-5 rounded-xl my-1"
+      >
         Add a comment
       </button>
     </form>
@@ -43,7 +45,8 @@ if (!post) {
       Please
       <a
         class="text-teal-900 underline"
-        href={`/login?redirect=/blog/${post.slug}#comments`}>
+        href={`/login?redirect=/blog/${post.slug}#comments`}
+      >
         login
       </a>
       to comment.

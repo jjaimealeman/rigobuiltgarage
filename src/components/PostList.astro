@@ -1,16 +1,16 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import Post from "./Post.astro";
+import type { CollectionEntry } from 'astro:content';
+import Post from './Post.astro';
 
 type Props = {
-  posts: CollectionEntry<"posts">[];
+  posts: CollectionEntry<'posts'>[];
 };
 
 // const { posts } = Astro.props;
 let { posts } = Astro.props;
 // posts = posts.sort((a, b) => b.data.date.localeCompare(a.data.date));
 posts = posts.sort(
-  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
 );
 ---
 

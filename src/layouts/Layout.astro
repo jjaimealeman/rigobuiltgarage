@@ -1,13 +1,13 @@
 ---
-import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
-import "@fontsource-variable/open-sans";
-import "@fontsource-variable/fira-code";
-import "@fontsource/merriweather";
-import { getThumbnail } from "../cloudinary";
-import TwSizeIndicator from "../components/TwSizeIndicator.astro";
-import "../base.css";
-import { ViewTransitions } from "astro:transitions";
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import '@fontsource-variable/open-sans';
+import '@fontsource-variable/fira-code';
+import '@fontsource/merriweather';
+import { getThumbnail } from '../cloudinary';
+import TwSizeIndicator from '../components/TwSizeIndicator.astro';
+import '../base.css';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -16,9 +16,9 @@ interface Props {
 }
 
 const {
-  title = "Rigo Built Garage",
-  description = "Automotive Repair Shop",
-  image = getThumbnail("Automotive Repair Shop"),
+  title = 'Rigo Built Garage',
+  description = 'Automotive Repair Shop',
+  image = getThumbnail('Automotive Repair Shop'),
 } = Astro.props;
 ---
 

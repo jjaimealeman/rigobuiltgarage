@@ -24,17 +24,17 @@ const currentPath = pathName.slice(1);
   </h1>
   <ul class="w-full flex justify-between pr-8">
     {
-      ["", "blog", "about", "contact", "gallery", "test"].map((page) => (
+      ['', 'blog', 'about', 'contact', 'gallery', 'test'].map((page) => (
         <li class="inline ml-auto text-lg md:text-xl lg:text-2xl capitalize">
           <a
             class={
               currentPath === page
-                ? "text-sky-600 font-bold border-b-2 border-sky-600"
-                : "hover:text-sky-600 duration-200"
+                ? 'text-sky-600 font-bold border-b-2 border-sky-600'
+                : 'hover:text-sky-600 duration-200'
             }
             href={`/${page}`}
           >
-            {page || "Home"}
+            {page || 'Home'}
           </a>
         </li>
       ))

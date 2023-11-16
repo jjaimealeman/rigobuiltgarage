@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
 type Props = {
   page: number;
   numberOfPosts: number;
@@ -16,7 +16,8 @@ const hasNextPosts = numberOfPosts > page * postsPerPage;
     hasPreviousPosts ? (
       <a
         class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
-        href={`?page=${page - 1}`}>
+        href={`?page=${page - 1}`}
+      >
         Previous
       </a>
     ) : (
@@ -28,7 +29,8 @@ const hasNextPosts = numberOfPosts > page * postsPerPage;
     hasNextPosts ? (
       <a
         class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
-        href={`?page=${page + 1}`}>
+        href={`?page=${page + 1}`}
+      >
         Next
       </a>
     ) : (

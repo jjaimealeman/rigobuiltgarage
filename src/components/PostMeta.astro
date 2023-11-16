@@ -1,16 +1,16 @@
 ---
-import { getEntryBySlug, type CollectionEntry } from "astro:content";
-import { Image } from "astro:assets";
+import { getEntryBySlug, type CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 type Props = {
-  post: CollectionEntry<"posts">;
+  post: CollectionEntry<'posts'>;
 };
 
 const { post } = Astro.props;
-const author = await getEntryBySlug("authors", post.data.author);
+const author = await getEntryBySlug('authors', post.data.author);
 
 if (!author) {
-  return Astro.redirect("/404");
+  return Astro.redirect('/404');
 }
 ---
 

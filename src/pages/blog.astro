@@ -1,27 +1,24 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import PostList from "../components/PostList.astro";
-import H1 from "../components/H1.astro";
-import Main from "../components/Main.astro";
-import Pagination from "../components/Pagination.astro";
-import CategoryList from "../components/CategoryList.astro";
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PostList from '../components/PostList.astro';
+import H1 from '../components/H1.astro';
+import Main from '../components/Main.astro';
+import Pagination from '../components/Pagination.astro';
+import CategoryList from '../components/CategoryList.astro';
 
-const page = Number(Astro.url.searchParams.get("page")) || 1;
+const page = Number(Astro.url.searchParams.get('page')) || 1;
 const postsPerPage = 6;
 const start = postsPerPage * (page - 1);
 const end = start + postsPerPage;
 
-const allPosts = await getCollection("posts");
+const allPosts = await getCollection('posts');
 const posts = allPosts.slice(start, end);
 const allCategories = posts.flatMap((post) => post.data.categories);
 const categories = Array.from(new Set(allCategories));
 ---
 
-<Layout
-  title="Blog - Rigo Built Garage"
-  description="Automotive Repair Shop"
->
+<Layout title="Blog - Rigo Built Garage" description="Automotive Repair Shop">
   <Main>
     <div class="mb-12">
       <CategoryList categories={categories} title="Tags" />
