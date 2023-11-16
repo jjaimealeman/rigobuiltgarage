@@ -1,19 +1,21 @@
-import { X as XataClient } from './_slug__346ce338.mjs';
-/* empty css                            */import '../astro_9677f808.mjs';
-import 'clsx';
-import 'html-escaper';
-import './404_082d292d.mjs';
-import '@astrojs/internal-helpers/path';
-import '../astro-assets-services_63ebd146.mjs';
-/* empty css                            */import '@cloudinary/url-gen';
-import '@cloudinary/url-gen/actions/overlay';
-import '@cloudinary/url-gen/qualifiers/source';
-import '@cloudinary/url-gen/qualifiers/textStyle';
-import '@xata.io/client';
-import 'date-fns';
+import { X as XataClient } from "./_slug__346ce338.mjs";
+/* empty css                            */ import "../astro_9677f808.mjs";
+import "clsx";
+import "html-escaper";
+import "./404_082d292d.mjs";
+import "@astrojs/internal-helpers/path";
+import "../astro-assets-services_63ebd146.mjs";
+/* empty css                            */ import "@cloudinary/url-gen";
+import "@cloudinary/url-gen/actions/overlay";
+import "@cloudinary/url-gen/qualifiers/source";
+import "@cloudinary/url-gen/qualifiers/textStyle";
+import "@xata.io/client";
+import "date-fns";
 
 const post = async ({ request, redirect }) => {
-  const client = new XataClient({ apiKey: "xau_IgWn59fWqVPx0SR1Z3SZgfTQPzjyWhlM" });
+  const client = new XataClient({
+    apiKey: "xau_IgWn59fWqVPx0SR1Z3SZgfTQPzjyWhlM",
+  });
   const formData = await request.formData();
   const email = formData.get("email");
   if (!email) {
@@ -21,11 +23,14 @@ const post = async ({ request, redirect }) => {
   }
   try {
     await client.db.subscribers.create({
-      email
+      email,
     });
     return redirect("/newsletter/success", 307);
   } catch (error) {
-    if (error?.errors[0]?.message === "invalid record: column [email]: is not unique") {
+    if (
+      error?.errors[0]?.message ===
+      "invalid record: column [email]: is not unique"
+    ) {
       return redirect("/newsletter/failure?message=Email must be unique", 307);
     }
     return redirect("/newsletter/failure?message=Email subscribe failed", 307);

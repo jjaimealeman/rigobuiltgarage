@@ -3,16 +3,19 @@
 ---
 
 convert jpg to png
+
 ```sh
 for file in *.jpg; do convert "$file" "${file%.jpg}.png"; done
 ```
 
 optimize all png images
+
 ```sh
 for file in *.png; do pngquant --force --ext .png --quality=65-80 $file; done
 ```
 
 convert png to webp with cwebp
+
 ```sh
 for file in *.png; do cwebp -q 80 "$file" -o "${file%.png}.webp"; done
 ```
@@ -28,15 +31,19 @@ please browse their website and give me 5 blog title ideas. we will revisit thos
 Based on the content of the Rigo Built Garage website, which focuses on automotive repair and performance, particularly for Subaru vehicles, here are five blog title ideas that could be relevant and engaging for their audience:
 
 1. **"The Ultimate Guide to Subaru Performance Upgrades"**
+
    - Discussing the best performance upgrades for various Subaru models.
 
 2. **"Maintaining Your Subaru: Tips from the Experts"**
+
    - Offering maintenance advice to keep Subarus running at peak performance.
 
 3. **"Why Choose a Specialist? The Benefits of a Dedicated Subaru Repair Shop"**
+
    - Explaining the advantages of going to a specialized repair shop for Subaru vehicles.
 
 4. **"Subaru Repairs: Common Issues and How to Solve Them"**
+
    - Addressing frequent problems Subaru owners face and providing solutions.
 
 5. **"Behind the Scenes: A Day in the Life at Rigo Built Garage"**
@@ -79,18 +86,22 @@ As an AI developed by OpenAI, I don't have the capability to create or provide i
 
 1. **"The Ultimate Guide to Subaru Performance Upgrades"**
    src/content/posts/the-ultimate-guide-to-subaru-performance-upgrades.md
+
    - Image Idea: A dynamic shot of a Subaru engine bay with visible performance parts, like a turbocharger or cold air intake, possibly with a mechanic working on the upgrades.
 
 2. **"Maintaining Your Subaru: Tips from the Experts"**
    src/content/posts/maintaining-your-subaru-tips-from-the-experts.md
+
    - Image Idea: A Subaru on a lift in a clean, well-organized garage, with a focus on the undercarriage or open hood, showcasing a professional maintenance environment.
 
 3. **"Why Choose a Specialist? The Benefits of a Dedicated Subaru Repair Shop"**
    src/content/posts/why-choose-a-specialist-the-benefits-of-a-dedicated-subaru-repair-shop.md
+
    - Image Idea: A close-up of a Subaru's distinct branding or badge with the focused hands of a specialist mechanic in the background, implying expert care.
 
 4. **"Subaru Repairs: Common Issues and How to Solve Them"**
    src/content/posts/subaru-repairs-common-issues-and-how-to-solve-them.md
+
    - Image Idea: A diagnostic tool plugged into a Subaru, with a dashboard in the background displaying warning lights, indicating the process of troubleshooting.
 
 5. **"Behind the Scenes: A Day in the Life at Rigo Built Garage"**
