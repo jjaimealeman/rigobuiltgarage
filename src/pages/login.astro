@@ -53,18 +53,18 @@ if (Astro.request.method === 'POST') {
   <Main>
     <H1 text="Log In" />
     <form method="POST">
-      <label class="mb-2 block text-teal-900" for="email">Email:</label>
+      <label class="mb-2 block text-zinc-900" for="email">Email:</label>
       <input
-        class="border-teal-900 border w-full mb-2 rounded-lg px-6 py-3"
+        class="border-zinc-900 border w-full mb-2 rounded-lg px-6 py-3"
         type="text"
         id="email"
         name="email"
       />
       <p class="text-red-800 mb-10 h-10">{errors.email}</p>
 
-      <label class="mb-2 block text-teal-900" for="password">Password:</label>
+      <label class="mb-2 block text-zinc-900" for="password">Password:</label>
       <input
-        class="border-teal-900 border w-full mb-2 rounded-lg px-6 py-3"
+        class="border-zinc-900 border w-full mb-2 rounded-lg px-6 py-3"
         type="password"
         id="password"
         name="password"
@@ -73,13 +73,13 @@ if (Astro.request.method === 'POST') {
 
       <button
         type="submit"
-        class="text-white text-2xl bg-teal-900 w-full rounded-lg px-6 py-3 mb-11"
+        class="text-white text-2xl bg-zinc-900 w-full rounded-lg px-6 py-3 mb-11"
         >Log In!</button
       >
     </form>
 
     <p class="block mt-16">
-      Don't have an account? <a class="text-teal-900 underline" href="/signup"
+      Don't have an account? <a class="text-zinc-900 underline" href="/signup"
         >Sign Up</a
       >
     </p>
