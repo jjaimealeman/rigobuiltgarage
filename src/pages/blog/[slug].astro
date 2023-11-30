@@ -75,13 +75,13 @@ const { Content, headings } = await post.render();
       ← <a href="/blog" class="underline">Back to all blogs</a>
     </div>
 
-    <div class="mb-4">
-      <CategoryList categories={post.data.categories} />
-    </div>
-
     <H1 text={post.data.title} />
-
-    <PostMeta post={post} />
+    <div class="flex flex-row justify-between">
+      <PostMeta post={post} />
+      <div class="flex flex-wrap items-center justify-end">
+        <CategoryList categories={post.data.categories} />
+      </div>
+    </div>
 
     <Image
       class="rounded-2xl shadow-xl mb-28 aspect-thumbnail object-cover"
