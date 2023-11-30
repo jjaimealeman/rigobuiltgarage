@@ -1,16 +1,17 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import CategoryList from "./CategoryList.astro";
-import { Image } from "astro:assets";
+import type { CollectionEntry } from 'astro:content';
+import CategoryList from './CategoryList.astro';
+import { Image } from 'astro:assets';
 type Props = {
-  post: CollectionEntry<"posts">;
+  post: CollectionEntry<'posts'>;
 };
 
 const { post } = Astro.props;
 ---
 
 <article
-  class="grid grid-cols-2 gap-x-12 gap-y-5 max-lg:grid-cols-1 max-sm:mb-12 mb-28">
+  class="grid grid-cols-2 gap-x-12 gap-y-5 max-lg:grid-cols-1 max-sm:mb-12 mb-28"
+>
   <a class="" href={`/blog/${post.slug}`}>
     <Image
       class="rounded-2xl aspect-thumbnail object-cover"

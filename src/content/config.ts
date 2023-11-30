@@ -11,7 +11,7 @@ const postsCollection = defineCollection({
       date: z
         .string()
         .transform((str: string | number | Date) =>
-          format(new Date(str), "MMMM d, yyyy")
+          format(new Date(str), "MMMM d, yyyy"),
         ),
       featured: z.boolean().default(false),
       image: image(),

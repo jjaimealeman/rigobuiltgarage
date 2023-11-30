@@ -6,8 +6,10 @@ type Props = {
 const { category } = Astro.props;
 ---
 
+<!-- class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl" --><!-- class="text-zinc-900 rounded-3xl uppercase text-xl border-2 border-teal-900 whitespace-nowrap p-2" --><!-- class="bg-sky-300 text-slate-900 drop-shadow-[0_5px_5px_rgba(0,0,0,0.75)] border-2 border-slate-800 py-4 px-6 text-center tracking-wider rounded-xl text-lg md:text-xl lg:text-2xl hover:-translate-y-[4px] duration-200 hover:scale-105 transform-gpu" --><!-- class="text-base md:text-lg lg:text-xl font-bold border-2 border-white text-white tracking-wider lowercase bg-sky-600 hover:bg-sky-800 text-center p-4 font-body transition-colors duration-300" -->
 <a
-  class="text-teal-900 rounded-3xl uppercase text-xl border-2 border-teal-900 whitespace-nowrap p-2"
-  href={`/category/${category}`}>
+  class="text-sm md:text-base lg:text-lg font-bold text-zinc-700 hover:text-white tracking-wider lowercase bg-zinc-200 hover:bg-zinc-700 text-center p-4 font-body transition-colors duration-300 rounded-full"
+  href={`/category/${category}`}
+>
   {category}
 </a>

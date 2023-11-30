@@ -1,29 +1,29 @@
 ---
-import { format } from "date-fns";
-import type { SelectedPick } from "@xata.io/client";
+import { format } from 'date-fns';
+import type { SelectedPick } from '@xata.io/client';
 
-import type { CommentsRecord } from "../xata";
+import type { CommentsRecord } from '../xata';
 
 type Props = {
   comment: SelectedPick<
     CommentsRecord,
-    ("text" | "date" | "id" | "user.name")[]
+    ('text' | 'date' | 'id' | 'user.name')[]
   >;
 };
 
 const { comment } = Astro.props;
 
 const initials = comment.user?.name
-  .split(" ")
+  .split(' ')
   .map((part) => part[0])
-  .join("");
+  .join('');
 
-const formattedDate = format(comment.date, "MMM d, yyyy");
+const formattedDate = format(comment.date, 'MMM d, yyyy');
 ---
 
 <div class="flex gap-x-12 items-start">
   <span
-    class="text-teal-900 rounded-full border border-teal-900 font-bold text-xl px-5 py-5"
+    class="text-zinc-900 rounded-full border border-zinc-900 font-bold text-xl px-5 py-5"
   >
     {initials}
   </span>

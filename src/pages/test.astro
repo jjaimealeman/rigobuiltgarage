@@ -1,45 +1,45 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Main from "../components/Main.astro";
-import { getCollection } from "astro:content";
-import { Picture, getImage } from "astro:assets";
+import Layout from '../layouts/Layout.astro';
+import Main from '../components/Main.astro';
+import { getCollection } from 'astro:content';
+import { Picture, getImage } from 'astro:assets';
 // import bgHome from "../images/bg-home.png";
 // import bgHome from "../images/bg-home-2.png";
-import bgHome from "../images/bg-home-2.webp";
-import { Image } from "astro:assets";
-import aboutMechanics from "../images/about-mechanics.png"; // 365x365 @176kb
-import aboutPricing from "../images/about-pricing.png"; // 365x365 @107kb
-import aboutPromise from "../images/about-promise.png"; // 365x365 @196kb
+import bgHome from '../images/bg-home-2.webp';
+import { Image } from 'astro:assets';
+import aboutMechanics from '../images/about-mechanics.png'; // 365x365 @176kb
+import aboutPricing from '../images/about-pricing.png'; // 365x365 @107kb
+import aboutPromise from '../images/about-promise.png'; // 365x365 @196kb
 
-import myImage1 from "../images/500/300/funsplash-4qjqR9g8OV.jpg";
-const myImageBG1 = await getImage({ src: myImage1, format: "webp" });
+import myImage1 from '../images/500/300/funsplash-4qjqR9g8OV.jpg';
+const myImageBG1 = await getImage({ src: myImage1, format: 'webp' });
 
-import myImage2 from "../images/500/300/funsplash-4b4hY6PpxN.jpg";
-const myImageBG2 = await getImage({ src: myImage2, format: "webp" });
+import myImage2 from '../images/500/300/funsplash-4b4hY6PpxN.jpg';
+const myImageBG2 = await getImage({ src: myImage2, format: 'webp' });
 
 // data method 1: local frontmatter data
-const data1 = ["Isabella", "Olivia", "Dad"];
+const data1 = ['Isabella', 'Olivia', 'Dad'];
 
 // data method 3: import local files
-import moviesJson from "../data/movies.json";
-import carsJson from "../data/cars.json";
-import HeroHome from "../components/HeroHome.astro";
+import moviesJson from '../data/movies.json';
+import carsJson from '../data/cars.json';
+import HeroHome from '../components/HeroHome.astro';
 const sortedData = moviesJson.sort((a, b) => a.year - b.year);
 function joinWithAnd(arr: string[]) {
   if (arr.length === 0) {
-    return "";
+    return '';
   } else if (arr.length === 1) {
     return arr[0];
   } else if (arr.length === 2) {
-    return arr.join(" and ");
+    return arr.join(' and ');
   } else {
     const last = arr.pop();
-    return `${arr.join(", ")}, and ${last}`;
+    return `${arr.join(', ')}, and ${last}`;
   }
 }
 
 // data method 4: content collections
-const testColl = await getCollection("test");
+const testColl = await getCollection('test');
 
 // console.log("🚀 ~ file: test.astro:39 ~ testColl:", testColl);
 ---
@@ -129,7 +129,7 @@ const testColl = await getCollection("test");
   }
 
   .animated-underline::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     bottom: 0;

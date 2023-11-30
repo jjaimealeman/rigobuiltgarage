@@ -2,6 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
@@ -9,8 +10,8 @@ module.exports = {
         sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
         mono: ["Fira Code Variable", ...defaultTheme.fontFamily.mono],
         serif: ["Merriweather", ...defaultTheme.fontFamily.serif],
-        heading: ['Archivo Black', 'sans-serif'],
-        body: ['Montserrat', 'sans-serif'],
+        heading: ["Archivo Black", "sans-serif"],
+        body: ["Montserrat", "sans-serif"],
       },
       aspectRatio: {
         thumbnail: "1.5",
@@ -26,6 +27,6 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
-    require("@tailwindcss/container-queries")
+    require("@tailwindcss/container-queries"),
   ],
 };

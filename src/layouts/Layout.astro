@@ -1,13 +1,13 @@
 ---
-import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
-import "@fontsource-variable/open-sans";
-import "@fontsource-variable/fira-code";
-import "@fontsource/merriweather";
-import { getThumbnail } from "../cloudinary";
-import TwSizeIndicator from "../components/TwSizeIndicator.astro";
-import "../base.css";
-import { ViewTransitions } from "astro:transitions";
+import Footer from '../components/Footer.astro';
+import Navigation from '../components/Navigation.astro';
+import '@fontsource-variable/open-sans';
+import '@fontsource-variable/fira-code';
+import '@fontsource/merriweather';
+import { getThumbnail } from '../cloudinary';
+import TwSizeIndicator from '../components/TwSizeIndicator.astro';
+import '../base.css';
+import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -16,9 +16,9 @@ interface Props {
 }
 
 const {
-  title = "Rigo Built Garage",
-  description = "Automotive Repair Shop",
-  image = getThumbnail("Automotive Repair Shop"),
+  title = 'Rigo Built Garage',
+  description = 'Automotive Repair Shop',
+  image = getThumbnail('Automotive Repair Shop'),
 } = Astro.props;
 ---
 
@@ -46,8 +46,20 @@ const {
     <meta property="twitter:image" content={image} />
     <meta property="twitter:image:alt" content={description} />
     <ViewTransitions />
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
   </head>
-  <body>
+  <body class="transition-all ease-in-out duration-1000 transform-cpu">
     <TwSizeIndicator />
     <Navigation />
     <slot />

@@ -1,18 +1,18 @@
 ---
-import H1 from "../components/H1.astro";
-import Main from "../components/Main.astro";
-import Layout from "../layouts/Layout.astro";
-import { XataClient } from "../xata";
-import bcrypt from "bcryptjs";
+import H1 from '../components/H1.astro';
+import Main from '../components/Main.astro';
+import Layout from '../layouts/Layout.astro';
+import { XataClient } from '../xata';
+import bcrypt from 'bcryptjs';
 
 // handle POST request
-if (Astro.request.method === "POST") {
+if (Astro.request.method === 'POST') {
   const xata = new XataClient({ apiKey: import.meta.env.XATA_API_KEY });
 
   const data = await Astro.request.formData();
-  const name = data.get("name") as string;
-  const email = data.get("email") as string;
-  const password = data.get("password") as string;
+  const name = data.get('name') as string;
+  const email = data.get('email') as string;
+  const password = data.get('password') as string;
 
   const salt = bcrypt.genSaltSync(10);
   const hash = bcrypt.hashSync(password, salt);
@@ -22,20 +22,20 @@ if (Astro.request.method === "POST") {
     password: hash,
   });
 
-  Astro.cookies.set("userId", user.id, {
+  Astro.cookies.set('userId', user.id, {
     httpOnly: true,
     secure: true,
   });
-  Astro.cookies.set("userName", user.name, {
+  Astro.cookies.set('userName', user.name, {
     httpOnly: true,
     secure: true,
   });
-  Astro.cookies.set("userEmail", user.email, {
+  Astro.cookies.set('userEmail', user.email, {
     httpOnly: true,
     secure: true,
   });
 
-  return Astro.redirect("/", 302);
+  return Astro.redirect('/', 302);
 }
 ---
 
@@ -43,25 +43,25 @@ if (Astro.request.method === "POST") {
   <Main>
     <H1 text="Sign Up" />
     <form method="POST">
-      <label class="mb-2 block text-teal-900" for="name">Full Name:</label>
+      <label class="mb-2 block text-zinc-900" for="name">Full Name:</label>
       <input
-        class="border-teal-900 border w-full mb-10 rounded-lg px-6 py-3"
+        class="border-zinc-900 border w-full mb-10 rounded-lg px-6 py-3"
         type="text"
         id="name"
         name="name"
       />
 
-      <label class="mb-2 block text-teal-900" for="email">Email:</label>
+      <label class="mb-2 block text-zinc-900" for="email">Email:</label>
       <input
-        class="border-teal-900 border w-full mb-10 rounded-lg px-6 py-3"
+        class="border-zinc-900 border w-full mb-10 rounded-lg px-6 py-3"
         type="text"
         id="email"
         name="email"
       />
 
-      <label class="mb-2 block text-teal-900" for="password">Password:</label>
+      <label class="mb-2 block text-zinc-900" for="password">Password:</label>
       <input
-        class="border-teal-900 border w-full mb-10 rounded-lg px-6 py-3"
+        class="border-zinc-900 border w-full mb-10 rounded-lg px-6 py-3"
         type="password"
         id="password"
         name="password"
@@ -69,13 +69,13 @@ if (Astro.request.method === "POST") {
 
       <button
         type="submit"
-        class="text-white text-2xl bg-teal-900 w-full rounded-lg px-6 py-3 mb-11"
+        class="text-white text-2xl bg-zinc-900 w-full rounded-lg px-6 py-3 mb-11"
         >Sign Up!</button
       >
     </form>
 
     <p class="block mt-16">
-      Already Registered? <a class="text-teal-900 underline" href="/login"
+      Already Registered? <a class="text-zinc-900 underline" href="/login"
         >Log In</a
       >
     </p>

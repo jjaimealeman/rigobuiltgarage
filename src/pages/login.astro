@@ -1,17 +1,17 @@
 ---
-import H1 from "../components/H1.astro";
-import Main from "../components/Main.astro";
-import Layout from "../layouts/Layout.astro";
-import { XataClient } from "../xata";
-import bcrypt from "bcryptjs";
+import H1 from '../components/H1.astro';
+import Main from '../components/Main.astro';
+import Layout from '../layouts/Layout.astro';
+import { XataClient } from '../xata';
+import bcrypt from 'bcryptjs';
 
 const errors: Record<string, string> = {};
 
-if (Astro.request.method === "POST") {
+if (Astro.request.method === 'POST') {
   const xata = new XataClient({ apiKey: import.meta.env.XATA_API_KEY });
   const data = await Astro.request.formData();
-  const email = data.get("email") as string;
-  const password = data.get("password") as string;
+  const email = data.get('email') as string;
+  const password = data.get('password') as string;
 
   //   const salt = bcrypt.genSaltSync(10);
   //   const hash = bcrypt.hashSync(password, salt);
@@ -21,7 +21,7 @@ if (Astro.request.method === "POST") {
   if (!user) {
     // TODO
     // handle user does not exist
-    errors.email = "Incorrect username.";
+    errors.email = 'Incorrect username.';
   } else {
     // handle success
     const authenticated = bcrypt.compareSync(password, user.password);
@@ -29,21 +29,21 @@ if (Astro.request.method === "POST") {
     if (!authenticated) {
       // TODO
       // handle NOT authenticated
-      errors.password = "Incorrect password.";
+      errors.password = 'Incorrect password.';
     } else {
-      Astro.cookies.set("userId", user.id, {
+      Astro.cookies.set('userId', user.id, {
         httpOnly: true,
         secure: true,
       });
-      Astro.cookies.set("userName", user.name, {
+      Astro.cookies.set('userName', user.name, {
         httpOnly: true,
         secure: true,
       });
-      Astro.cookies.set("userEmail", user.email, {
+      Astro.cookies.set('userEmail', user.email, {
         httpOnly: true,
         secure: true,
       });
-      return Astro.redirect("/", 302);
+      return Astro.redirect('/', 302);
     }
   }
 }
@@ -53,18 +53,18 @@ if (Astro.request.method === "POST") {
   <Main>
     <H1 text="Log In" />
     <form method="POST">
-      <label class="mb-2 block text-teal-900" for="email">Email:</label>
+      <label class="mb-2 block text-zinc-900" for="email">Email:</label>
       <input
-        class="border-teal-900 border w-full mb-2 rounded-lg px-6 py-3"
+        class="border-zinc-900 border w-full mb-2 rounded-lg px-6 py-3"
         type="text"
         id="email"
         name="email"
       />
       <p class="text-red-800 mb-10 h-10">{errors.email}</p>
 
-      <label class="mb-2 block text-teal-900" for="password">Password:</label>
+      <label class="mb-2 block text-zinc-900" for="password">Password:</label>
       <input
-        class="border-teal-900 border w-full mb-2 rounded-lg px-6 py-3"
+        class="border-zinc-900 border w-full mb-2 rounded-lg px-6 py-3"
         type="password"
         id="password"
         name="password"
@@ -73,13 +73,13 @@ if (Astro.request.method === "POST") {
 
       <button
         type="submit"
-        class="text-white text-2xl bg-teal-900 w-full rounded-lg px-6 py-3 mb-11"
+        class="text-white text-2xl bg-zinc-900 w-full rounded-lg px-6 py-3 mb-11"
         >Log In!</button
       >
     </form>
 
     <p class="block mt-16">
-      Don't have an account? <a class="text-teal-900 underline" href="/signup"
+      Don't have an account? <a class="text-zinc-900 underline" href="/signup"
         >Sign Up</a
       >
     </p>

@@ -17,7 +17,7 @@ const getThumbnail = (title: string) => {
     // .image("astro-course-ogbg")
     .image("rigobuiltgarage-ogbg")
     .overlay(
-      source(text(title, new TextStyle("Cabin", 64).fontWeight("bold")))
+      source(text(title, new TextStyle("Cabin", 64).fontWeight("bold"))),
     );
 
   return thumbnail.toURL();
