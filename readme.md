@@ -134,3 +134,18 @@ Certainly! Here are ten single-word category titles that could be used to filter
 10. Innovation
 
 ---
+
+Tuesday, November 28, 2023 @ 01:18:16 PM
+
+Reading this interesting article
+https://www.paulie.dev/posts/2023/10/how-to-create-an-svg-radar-chart/
+
+https://www.paulie.dev/posts/2023/09/how-to-create-excerpts-with-astro/
+
+Wednesday, November 29, 2023 @ 09:48:35 PM
+CUSTOMIZING TAILWIND COLORS
+   https://uicolors.app/create ⭐⭐⭐
+   https://www.youtube.com/watch?v=WTchW0LdWL0 ⭐⭐
+   https://tailwindcss.com/docs/customizing-colors
+   https://colorbox.io/
+   https://palettte.app/
