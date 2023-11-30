@@ -1,6 +1,6 @@
 ---
 author: dwight-schrute
-categories: ["culture"]
+categories: ["culture", "testing"]
 date: 09/08/2023
 featured: false
 image: ./images/behind-the-scenes-a-day-in-the-life-at-rigo-built-garage/01.png
