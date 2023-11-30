@@ -16,9 +16,21 @@ const hasNextPosts = numberOfPosts > page * postsPerPage;
   {
     hasPreviousPosts ? (
       <a
-        class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
+        class="text-lg md:text-xl lg:text-2xl font-bold border-2 border-white text-white tracking-wider capitalize bg-sky-600 hover:bg-sky-800 text-center p-4 font-body transition-colors duration-300"
         href={`?page=${page - 1}`}
       >
+        <svg
+          class="inline-block mr-2 -scale-x-[1]"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="m6.05 19l5-7l-5-7H8.5l5 7l-5 7H6.05ZM12 19l5-7l-5-7h2.45l5 7l-5 7H12Z"
+          />
+        </svg>
         Previous
       </a>
     ) : (
@@ -29,10 +41,22 @@ const hasNextPosts = numberOfPosts > page * postsPerPage;
   {
     hasNextPosts ? (
       <a
-        class="bg-teal-900 text-white py-3 px-6 rounded-xl text-xl"
+        class="text-lg md:text-xl lg:text-2xl font-bold border-2 border-white text-white tracking-wider capitalize bg-sky-600 hover:bg-sky-800 text-center p-4 font-body transition-colors duration-300"
         href={`?page=${page + 1}`}
       >
         Next
+        <svg
+          class="inline-block ml-2"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            d="m6.05 19l5-7l-5-7H8.5l5 7l-5 7H6.05ZM12 19l5-7l-5-7h2.45l5 7l-5 7H12Z"
+          />
+        </svg>
       </a>
     ) : (
       <div />
