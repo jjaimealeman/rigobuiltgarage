@@ -1,6 +1,10 @@
 ---
 import Newsletter from './Newsletter.astro';
 import bgSubscribe from '../images/bg-subscribe.png';
+
+const today = new Date();
+const themes = ['light', 'dark', 'system'];
+const theme = Astro.cookies.get('theme')?.value ?? 'system';
 ---
 
 <section
@@ -52,7 +56,7 @@ import bgSubscribe from '../images/bg-subscribe.png';
     <p
       class="text-base md:text-lg lg:text-xl w-full lg:w-1/2 text-center lg:text-left"
     >
-      Copyright &copy; {new Date().getFullYear()} Rigo Built Garage, LLC <br
+      Copyright &copy; {today.getFullYear()} Rigo Built Garage, LLC <br
         class="hidden lg:block"
       />
       <span class="inline lg:hidden"> -</span>
@@ -87,6 +91,21 @@ import bgSubscribe from '../images/bg-subscribe.png';
       Powered by 91 Octane &amp; Go Fast Parts
     </p>
   </div>
+  <div class="text-white theme-switcher">
+    {
+      themes.map((t) => (
+        <label>
+          {t}
+          <input
+            type="radio"
+            checked={theme === t}
+            name="themeSwitcher"
+            id={t}
+          />
+        </label>
+      ))
+    }
+  </div>
 </footer>
 
 <style>
@@ -106,4 +125,48 @@ import bgSubscribe from '../images/bg-subscribe.png';
       transform: scale(1.3);
     }
   }
+  .theme-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    & label {
+      display: grid;
+    }
+  }
 </style>
+
+<script>
+  type Themes = 'light' | 'dark' | 'system';
+
+  const themeToggles = document.querySelectorAll('[name="themeSwitcher"]');
+
+  function changeTheme(theme: Themes) {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+
+  function saveTheme(theme: Themes) {
+    const d = new Date();
+    // expire cookine in 1 year
+    d.setTime(d.getTime() + 365 * 86400000);
+    document.cookie = `theme=${theme};expires=${d.toUTCString()}`;
+  }
+
+  function handleThemeClick(e: Event) {
+    const theme = (e.target as HTMLElement).id as Themes;
+    changeTheme(theme);
+    saveTheme(theme);
+  }
+
+  themeToggles.forEach((t) => t.addEventListener('change', handleThemeClick));
+
+  // window.addEventListener('DOMContentLoaded', () => {
+  //   const cookies = document.cookie;
+  //   const match = cookies.match('theme=([^;]+)');
+  //   let theme = 'system';
+  //   if (match) {
+  //     theme = match[1];
+  //   }
+  //   changeTheme(theme as Themes);
+  // });
+</script>
