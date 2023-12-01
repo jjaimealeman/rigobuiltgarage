@@ -20,10 +20,12 @@ const {
   description = 'Automotive Repair Shop',
   image = getThumbnail('Automotive Repair Shop'),
 } = Astro.props;
+
+const theme = Astro.cookies.get('theme')?.value ?? 'system';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme={theme}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
