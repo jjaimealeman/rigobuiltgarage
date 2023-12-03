@@ -8,8 +8,8 @@ import Pagination from '../components/Pagination.astro';
 import CategoryList from '../components/CategoryList.astro';
 
 const page = Number(Astro.url.searchParams.get('page')) || 1;
-// const postsPerPage = 4;
-const postsPerPage = Number(import.meta.env.POSTS_PER_PAGE);
+const postsPerPage = 4;
+// const postsPerPage = Number(import.meta.env.POSTS_PER_PAGE);
 const start = postsPerPage * (page - 1);
 const end = start + postsPerPage;
 
