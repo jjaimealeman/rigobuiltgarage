@@ -50,7 +50,7 @@
     unist-util-visit "^4.1.2"
     vfile "^5.3.7"
 
-"@astrojs/netlify@^3.0.4":
+"@astrojs/netlify@^3.0.2":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@astrojs/netlify/-/netlify-3.0.4.tgz#7fcd6b64f924b28a954d7e3375d3af251fdb71ea"
   integrity sha512-zVDr53WEAyrsAIvKNgi1DfER5Vq83/z8rT71r2Id/4ygw5dH04fPGjBroovJYMDXSip/rZQIvNa52A0iMFs7Ng==
@@ -74,7 +74,7 @@
     fast-xml-parser "^4.2.7"
     kleur "^4.1.5"
 
-"@astrojs/sitemap@^3.0.3":
+"@astrojs/sitemap@^3.0.1":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@astrojs/sitemap/-/sitemap-3.0.3.tgz#9b9be1397f94cd4459a88ebac129ed63888a0e67"
   integrity sha512-+GRKp1yho9dpHBcMcU6JpbL41k0yYZghOkNsMRb8QIRflbGHvd787tdv9oIZ5NJj0SqAuOlqp2UpqLkJXuAe2A==
@@ -82,7 +82,7 @@
     sitemap "^7.1.1"
     zod "^3.22.4"
 
-"@astrojs/tailwind@^5.0.2":
+"@astrojs/tailwind@^5.0.0":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-5.0.2.tgz#877c36750bc88b7e18b3ad2aa8f655d4d9769a3c"
   integrity sha512-oXqeqmBlkQmsltrsU9nEWeXOtrZIAHW8dcmX7BCdrjzPnU6dPwWzAwhddNQ9ihKiWwsLnlbwQZIo2CDigcZlIA==
@@ -332,7 +332,7 @@
   dependencies:
     "@cloudinary/url-gen" "^1.7.0"
 
-"@cloudinary/url-gen@^1.13.0", "@cloudinary/url-gen@^1.7.0":
+"@cloudinary/url-gen@^1.11.0", "@cloudinary/url-gen@^1.7.0":
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/@cloudinary/url-gen/-/url-gen-1.13.0.tgz#31674b737b5176e8286c07b413b723c8ecf5b2b5"
   integrity sha512-p7ASCX2fZw1JWtMG2ADd/Y0TfvE5SX9v0TDJDlzXX3OlNxLSuqzLWGgj5oJD4ZTo62FdxH24N8HPZ7NXEXtj5g==
@@ -559,12 +559,12 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.19.8.tgz#c8285183dbdb17008578dbacb6e22748709b4822"
   integrity sha512-bfZ0cQ1uZs2PqpulNL5j/3w+GDhP36k1K5c38QdQg+Swy51jFZWWeIkteNsufkQxp986wnqRRsb/bHbY1WQ7TA==
 
-"@fontsource-variable/fira-code@^5.0.15":
+"@fontsource-variable/fira-code@^5.0.13":
   version "5.0.15"
   resolved "https://registry.yarnpkg.com/@fontsource-variable/fira-code/-/fira-code-5.0.15.tgz#d3bd56e31e6986975f54d4b1917964413f6624d5"
   integrity sha512-tp56A54PjfH1RBJQ3Jdqh5cvrEHd4n302z3v6sGAnTKW9+oQgU0dK4WAMIXgDhFY35BrhpoIElowfkAT7NYJfA==
 
-"@fontsource-variable/open-sans@^5.0.18":
+"@fontsource-variable/open-sans@^5.0.16":
   version "5.0.18"
   resolved "https://registry.yarnpkg.com/@fontsource-variable/open-sans/-/open-sans-5.0.18.tgz#23f53e97c180385763476efa86984bf989b25a4d"
   integrity sha512-i75EKP87vin0hBaXNblJrqi7bMgcSStFUbqLVZlPTm+ahlrlSky2IxPZ+S/sj/3N7TIibhrTbokfbkiUPT11QA==
@@ -663,7 +663,7 @@
   resolved "https://registry.yarnpkg.com/@tailwindcss/container-queries/-/container-queries-0.1.1.tgz#9a759ce2cb8736a4c6a0cb93aeb740573a731974"
   integrity sha512-p18dswChx6WnTSaJCSGx6lTmrGzNNvm2FtXmiO6AuA1V4U5REyoqwmT6kgAsIMdjo07QdAfYXHJ4hnMtfHzWgA==
 
-"@tailwindcss/forms@^0.5.7":
+"@tailwindcss/forms@^0.5.6":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.5.7.tgz#db5421f062a757b5f828bc9286ba626c6685e821"
   integrity sha512-QE7X69iQI+ZXwldE+rzasvbJiyV/ju1FGHH0Qn2W3FKbuYtqp8LKcy6iSw79fVUT5/Vvf+0XgLCeYVG+UV6hOw==
@@ -718,7 +718,7 @@
   dependencies:
     "@babel/types" "^7.20.7"
 
-"@types/bcryptjs@^2.4.6":
+"@types/bcryptjs@^2.4.4":
   version "2.4.6"
   resolved "https://registry.yarnpkg.com/@types/bcryptjs/-/bcryptjs-2.4.6.tgz#2b92e3c2121c66eba3901e64faf8bb922ec291fa"
   integrity sha512-9xlo6R2qDs5uixm0bcIqCeMCE6HiQsIyel9KQySStiyqNl2tnj2mP3DX1Nf56MD6KMenNNlBBsy3LJ7gUEQPXQ==
@@ -814,10 +814,10 @@
   resolved "https://registry.yarnpkg.com/@ungap/structured-clone/-/structured-clone-1.2.0.tgz#756641adb587851b5ccb3e095daf27ae581c8406"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@xata.io/client@^0.28.0":
-  version "0.28.0"
-  resolved "https://registry.yarnpkg.com/@xata.io/client/-/client-0.28.0.tgz#7e617df3adef2f4c0c1fcf2ad6e2736fd506a5c4"
-  integrity sha512-V6rpx+9C6uYdGUDUvk5xIot19zRvDEQhkHXWGIkKY/SCKu4w68S81Z88tgGLRaknSFjpAm7H/rvGBR2DrDpqtQ==
+"@xata.io/client@^0.26.9":
+  version "0.26.9"
+  resolved "https://registry.yarnpkg.com/@xata.io/client/-/client-0.26.9.tgz#8145ee552e3996d31ce3be8fd589691f6ffaf83e"
+  integrity sha512-5ojD/N6renMzhSJJHFe5GRy6bNo+0btnGmbup/3+9daC8gvM5ujEu5HxNf49ZQRwkBkL1PRvZbJF7gmn/izeeg==
 
 acorn@^8.10.0:
   version "8.11.2"
@@ -897,7 +897,7 @@ astro-icon@^0.8.1:
     resolve-pkg "^2.0.0"
     svgo "^2.8.0"
 
-astro@^3.6.4:
+astro@^3.3.2:
   version "3.6.4"
   resolved "https://registry.yarnpkg.com/astro/-/astro-3.6.4.tgz#9741fb45a449992333af5e39ec6925eb658875e1"
   integrity sha512-YatUyWEQ9GUC79Wc2zbovy6D6bXPW9++Z6PYs4GDamEDspUSnnzL/INB7WJqgFI0xAFk9jcUr+MZYjkdWqXYTw==
@@ -3826,7 +3826,7 @@ svgo@^2.8.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
-tailwindcss@^3.3.5:
+tailwindcss@^3.0.24:
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.3.5.tgz#22a59e2fbe0ecb6660809d9cc5f3976b077be3b8"
   integrity sha512-5SEZU4J7pxZgSkv7FP1zY8i2TIAOooNZ1e/OGtxIEv6GltpoiXUqWvLy89+a10qYTB1N5Ifkuw9lqQkN9sscvA==
