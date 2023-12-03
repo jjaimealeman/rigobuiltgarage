@@ -21,12 +21,11 @@ const {
   image = getThumbnail('Automotive Repair Shop'),
 } = Astro.props;
 
-// const theme = Astro.cookies.get('theme')?.value ?? 'system';
+const theme = Astro.cookies.get('theme')?.value ?? 'system';
 ---
 
 <!doctype html>
-<!-- <html lang="en" class="scroll-smooth" data-theme={theme}> -->
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" data-theme={theme}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -51,15 +50,15 @@ const {
     <ViewTransitions />
     <script>
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-      // if (
-      //   localStorage.getItem('color-theme') === 'dark' ||
-      //   (!('color-theme' in localStorage) &&
-      //     window.matchMedia('(prefers-color-scheme: dark)').matches)
-      // ) {
-      //   document.documentElement.classList.add('dark');
-      // } else {
-      //   document.documentElement.classList.remove('dark');
-      // }
+      if (
+        localStorage.getItem('color-theme') === 'dark' ||
+        (!('color-theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     </script>
   </head>
   <body class="transition-all ease-in-out duration-1000 transform-cpu">

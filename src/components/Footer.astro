@@ -3,8 +3,8 @@ import Newsletter from './Newsletter.astro';
 import bgSubscribe from '../images/bg-subscribe.png';
 
 const today = new Date();
-// const themes = ['light', 'dark', 'system'];
-// const theme = Astro.cookies.get('theme')?.value ?? 'system';
+const themes = ['light', 'dark', 'system'];
+const theme = Astro.cookies.get('theme')?.value ?? 'system';
 ---
 
 <section
@@ -91,7 +91,7 @@ const today = new Date();
       Powered by 91 Octane &amp; Go Fast Parts
     </p>
   </div>
-  <!-- <div class="text-white theme-switcher">
+  <div class="text-white theme-switcher">
     {
       themes.map((t) => (
         <label>
@@ -105,7 +105,7 @@ const today = new Date();
         </label>
       ))
     }
-  </div> -->
+  </div>
 </footer>
 
 <style>
@@ -137,28 +137,28 @@ const today = new Date();
 </style>
 
 <script>
-  // type Themes = 'light' | 'dark' | 'system';
+  type Themes = 'light' | 'dark' | 'system';
 
-  // const themeToggles = document.querySelectorAll('[name="themeSwitcher"]');
+  const themeToggles = document.querySelectorAll('[name="themeSwitcher"]');
 
-  // function changeTheme(theme: Themes) {
-  //   document.documentElement.setAttribute('data-theme', theme);
-  // }
+  function changeTheme(theme: Themes) {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
 
-  // function saveTheme(theme: Themes) {
-  //   const d = new Date();
-  //   // expire cookine in 1 year
-  //   d.setTime(d.getTime() + 365 * 86400000);
-  //   document.cookie = `theme=${theme};expires=${d.toUTCString()}`;
-  // }
+  function saveTheme(theme: Themes) {
+    const d = new Date();
+    // expire cookine in 1 year
+    d.setTime(d.getTime() + 365 * 86400000);
+    document.cookie = `theme=${theme};expires=${d.toUTCString()}`;
+  }
 
-  // function handleThemeClick(e: Event) {
-  //   const theme = (e.target as HTMLElement).id as Themes;
-  //   changeTheme(theme);
-  //   saveTheme(theme);
-  // }
+  function handleThemeClick(e: Event) {
+    const theme = (e.target as HTMLElement).id as Themes;
+    changeTheme(theme);
+    saveTheme(theme);
+  }
 
-  // themeToggles.forEach((t) => t.addEventListener('change', handleThemeClick));
+  themeToggles.forEach((t) => t.addEventListener('change', handleThemeClick));
 
   // window.addEventListener('DOMContentLoaded', () => {
   //   const cookies = document.cookie;
